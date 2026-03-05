@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="UTF-8">
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{.Subject}}</title>
+  <style>
         :root {
             --bg: #eef3ff;
             --bg-soft: #f8fbff;
@@ -66,19 +67,6 @@
             margin: 8px 0 0;
             font-size: 14px;
             color: rgba(255, 255, 255, 0.88);
-        }
-
-        .badge {
-            display: inline-block;
-            margin-bottom: 10px;
-            padding: 4px 10px;
-            border-radius: 999px;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.35px;
-            text-transform: uppercase;
-            background: rgba(255, 255, 255, 0.16);
-            border: 1px solid rgba(255, 255, 255, 0.28);
         }
 
         .content {
@@ -250,28 +238,23 @@
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="header">
-            <h2>⚠️ Order Information Needs Correction</h2>
-        </div>
-        <div class="content">
-            <p>Dear Customer,</p>
-            <p>Your order (<strong>{{.OrderNo}}</strong>) information needs to be resubmitted.</p>
-            <div class="warning">
-                <p><strong>Reason:</strong> {{.Reason}}</p>
-            </div>
-            <p>Please click the button below to resubmit your shipping information:</p>
-            <p style="text-align: center;">
-                <a href="{{.FormURL}}" class="button">Resubmit Information</a>
-            </p>
-        </div>
-        <div class="footer">
-            <p>If you have any questions, please contact customer service.</p>
-            <p>&copy; 2026 AuraLogic. All rights reserved.</p>
-        </div>
+  <div class="container">
+    <div class="hero">
+      <h1>{{.Subject}}</h1>
+      <p>{{.AppName}} curated this message for you.</p>
     </div>
+    <div class="content">
+      <div class="rich-content">
+        {{.ContentHTML}}
+      </div>
+      <p style="text-align: center; margin: 24px 0 6px;">
+        <a href="{{.AppURL}}" class="button" style="color: white;">Explore {{.AppName}}</a>
+      </p>
+    </div>
+    <div class="footer">
+      <p>Sent by {{.AppName}} on {{.Today}}</p>
+    </div>
+  </div>
 </body>
-
 </html>
